@@ -31,7 +31,7 @@ class controller_sms {
                         
                         $fee->add_fee($params['login'], $fee_val, 'sendsms'); // записывает стоимость
                         
-                        echo '100:Сообщение отправлено&id:' . $result['id_sms'] . ' стоимость '. $fee_val;
+                        echo '100:Сообщение отправлено&id:' . $result['id_sms'] . '&стоимость:'. $fee_val;
                     }
                     else {
                         echo '400:Ошибка сервиса';
@@ -56,7 +56,7 @@ class controller_sms {
                     $sms = new model_sms();
                     $status = json_decode($sms->get_status($params['id']), TRUE)[$params['id']];
                     if ($status['status'] = 'deliver'){
-                        echo '101:Cтатус сообщения&'. 'доставлено ' .  str_replace(':', '-',  $status['time']);
+                        echo '101:Cтатус сообщения&'. 'доставлено:' .  str_replace(':', '-',  $status['time']);
                     }
                     else {
                         echo '101:Cтатус сообщения&'. 'не доставлено'; 

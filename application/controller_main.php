@@ -16,7 +16,7 @@ class controller_main {
     public function index () {
         
         include_once 'Parsedown.php';
-        $readme = file_get_contents('readme.md');
+        $readme = file_get_contents('README.md');
             
         $Parsedown = new Parsedown();
 

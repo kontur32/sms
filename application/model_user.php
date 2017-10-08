@@ -41,7 +41,7 @@ class User {
         $result = FALSE;
         
         if (($need_solt == "ON")){
-			$hash = crypt($new_password['pass'], uniqid(mt_rand(), true));
+            $hash = crypt($new_password['pass'], uniqid(mt_rand(), true));
         }
 	else {
             $hash = crypt($new_password['pass']);
