@@ -15,11 +15,11 @@ class controller_apiinfo {
 
     public function index () {
 
-        include_once 'Parsedown.php';
+        include_once 'includes/Parsedown.php';
         $readme = file_get_contents('README.md');
-		$status = file_get_contents("http://od37.ru/sms/status");
-		$status_code = ( substr($status, 0 , 1) == 0 ? "green" : "yellow" );
-		$version = substr (file_get_contents("http://od37.ru/sms/version"), 0, 7);
+        $status = file_get_contents("http://od37.ru/sms/status");
+        $status_code = ( substr($status, 0 , 1) == 0 ? "green" : "yellow" );
+        $version = substr (file_get_contents("http://od37.ru/sms/version"), 0, 7);
 
         $Parsedown = new Parsedown();
 
