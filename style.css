@@ -1,0 +1,37 @@
+* {
+	font-family : "Open Sans", Verdana, Geneva, "DejaVu Sans", sans-serif;
+}
+
+.status a {
+	background : lightgrey;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-family : Courier New;
+}
+
+.green span{
+	background : #00ff00;
+	padding-left : 5px;
+	padding-right : 5px;
+}
+
+.yellow span {
+	background : #ffff66;
+	padding-left : 5px;
+	padding-right : 5px;
+}
+
+.block {
+	max-width : 60%;
+    margin-left : 20%;
+    word-wrap: break-word;
+    background : silver;
+	padding : 10px;
+}
+
+li a {
+	background : lightgrey;
+	padding-left : 5px;
+	padding-right : 5px;
+	font-family : Courier New;
+}

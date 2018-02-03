@@ -6,20 +6,14 @@
  * and open the template in the editor.
  */
 
+
 /**
- * Description of controller_model
+ * Description of controller-version
  *
  * @author Пользователь
  */
 class controller_main {
-    
-    public function index () {
-        
-        include_once 'Parsedown.php';
-        $readme = file_get_contents('readme.md');
-            
-        $Parsedown = new Parsedown();
-
-        echo $Parsedown->text($readme);
+    public function index (){
+	echo file_get_contents('html/user-info.html');
     }
 }

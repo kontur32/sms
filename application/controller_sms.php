@@ -20,7 +20,8 @@ class controller_sms {
                 $is_user_login = $this->is_user_login($params['login'], $params['password']);
                 if ( $is_user_login === TRUE){
                     $sms = new model_sms();
-                    $result = json_decode($sms->send_sms($params['phone'], $params['text']), TRUE)[0][$params['login']];
+					$answer = $sms->send_sms($params['phone'], $params['text']);
+                    $result = json_decode($answer, TRUE)[0][$params['phone']];
                     
                     if ($result['error'] == '0'){
                     
@@ -31,11 +32,12 @@ class controller_sms {
                         
                         $fee->add_fee($params['login'], $fee_val, 'sendsms'); // записывает стоимость
                         
-                        echo '100:Сообщение отправлено&id:' . $result['id_sms'] . ' стоимость '. $fee_val;
+                        echo '100:Сообщение отправлено&id:' . $result['id_sms'] . '&стоимость:'. $fee_val ;
+												
                     }
                     else {
                         echo '400:Ошибка сервиса';
-                    }
+						                    }
                 }
             }
             else {
@@ -56,7 +58,7 @@ class controller_sms {
                     $sms = new model_sms();
                     $status = json_decode($sms->get_status($params['id']), TRUE)[$params['id']];
                     if ($status['status'] = 'deliver'){
-                        echo '101:Cтатус сообщения&'. 'доставлено ' .  str_replace(':', '-',  $status['time']);
+                        echo '101:Cтатус сообщения&'. 'доставлено:' .  str_replace(':', '-',  $status['time']);
                     }
                     else {
                         echo '101:Cтатус сообщения&'. 'не доставлено'; 

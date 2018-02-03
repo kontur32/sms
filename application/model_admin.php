@@ -13,8 +13,8 @@
  * @author Пользователь
  */
 class Аdmin {
-//put your code here
-     public function set_new_user () { //вынести в отдельный класс Admin
+
+     public function set_new_user () { 
         
         if ($this->user_status == 0) {
             file_put_contents ('user.csv', $this->userID.",". time() ."\n", FILE_APPEND);
