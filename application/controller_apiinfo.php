@@ -16,10 +16,11 @@ class controller_apiinfo {
     public function index () {
 
         include_once 'includes/Parsedown.php';
+		$host = "http://" .  $_SERVER['HTTP_HOST'];
         $readme = file_get_contents('README.md');
-        $status = file_get_contents("http://od37.ru/sms/status");
+        $status = file_get_contents($host . "/sms/status");
         $status_code = ( substr($status, 0 , 1) == 0 ? "green" : "yellow" );
-        $version = substr (file_get_contents("http://od37.ru/sms/version"), 0, 7);
+        $version = substr (file_get_contents($host . "/sms/version"), 0, 7);
 
         $Parsedown = new Parsedown();
 
@@ -27,6 +28,7 @@ class controller_apiinfo {
 		'<link rel="stylesheet" type="text/css" href="style.css">'
 		.'<div class="block">'
 			.'<p><a href="/sms">[на главную]</a></p>'
+			.'<p> Текущий хост: ' . $host . '</p>'
 			.'<p class="' . $status_code . '">Текущий статус: <span>'. substr ($status, 2) .'</span></p>'
 			.'<p class="status">Текущая версия: <a href="https://github.com/ivznanie/SMS_Client/raw/dev/clients/MS Excel/Компиляции/SMS_Client/SMS_Client (Клиент отправки произвольных СМС).xlsm">'. $version .'</a></p>'
 			. $Parsedown->text($readme)
