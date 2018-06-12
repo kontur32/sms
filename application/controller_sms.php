@@ -20,12 +20,11 @@ class controller_sms {
                 $is_user_login = $this->is_user_login($params['login'], $params['password']);
                 if ( $is_user_login === TRUE){
                     $sms = new model_sms();
-					$answer = $sms->send_sms($params['phone'], $params['text']);
+                    $answer = $sms->send_sms($params['phone'], $params['text']);
                     $result = json_decode($answer, TRUE)[0][$params['phone']];
                     
                     if ($result['error'] == '0'){
-                    
-                                              
+                              
                         include_once 'application/billing.php';
                         $fee = new ModelBalance ();
                         $fee_val = $fee->get_action_price('sendsms', $params); // определяет стоимость смс
@@ -37,7 +36,7 @@ class controller_sms {
                     }
                     else {
                         echo '400:Ошибка сервиса';
-						                    }
+                    }
                 }
             }
             else {

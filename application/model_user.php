@@ -107,6 +107,5 @@ class User {
                 $result = TRUE; 
             }
         return $result;
-    }
-    
+    }    
 }

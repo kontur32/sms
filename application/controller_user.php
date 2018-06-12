@@ -35,6 +35,5 @@ class controller_user {
         else {
             echo '304:Новый пароль установить не удалось';
         }
-        
     }
 }

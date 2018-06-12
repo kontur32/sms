@@ -7,7 +7,6 @@
  */
 
 class controller_status {
-    // const MINBAL = 100; // минимальная сумма на лицевом счете для включения сервиса
 
     public function index (){
 
@@ -19,7 +18,7 @@ class controller_status {
 	$is_on = Registry::getInstance()->getResource('setting')['is_on'];
 	$min_balance = Registry::getInstance()->getResource('setting')['min_balance'];
 
-        if ( (float)$bal_val > $min_balance && $is_on == 'ON'){ //self::MINBAL
+        if ( (float)$bal_val > $min_balance && $is_on == 'ON'){ 
             echo '0:SMS шлюз принимает запросы';
         }
         else {
