@@ -18,7 +18,7 @@ class controller_sms {
         if (isset($params['phone']) && isset($params['text'])){
             if (isset($params['login']) && isset($params['password'])){
                 $is_user_login = $this->is_user_login($params['login'], $params['password']);
-                if ( $is_user_login === TRUE){
+                if ( $is_user_login === TRUE and User::get_user_balance($params['login']) >= 20 ){
                     $sms = new model_sms();
                     $answer = $sms->send_sms($params['phone'], $params['text']);
                     $result = json_decode($answer, TRUE)[0][$params['phone']];
@@ -37,6 +37,9 @@ class controller_sms {
                     else {
                         echo '400:Ошибка сервиса';
                     }
+                }
+                else {
+                    echo '301:Пользователь не авторизован или не достаточно средств';
                 }
             }
             else {

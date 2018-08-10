@@ -13,7 +13,7 @@
  */
 class ModelBalance {
 
-    const SENDSMSFEE = 1.1;
+    const SENDSMSFEE = 1.5;
     const HLRFEE = 0.6; 
     const SMSLENGHTUTF8 = 68;
     const SMSLENGHTASCII = 136;
