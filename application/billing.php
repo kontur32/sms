@@ -15,9 +15,9 @@ class ModelBalance {
 
     const SENDSMSFEE = 1.5;
     const HLRFEE = 0.6; 
-    const SMSLENGHTUTF8 = 136;
-    const SMSLENGHTASCII = 136;
-    const  MAXSMSLENGHT = 276; //Допутимая длина текста текст смс в байтах 
+    const SMSLENGHTUTF8 = 132;
+    const SMSLENGHTASCII = 132;
+    const  MAXSMSLENGHT = 264; //Допутимая длина текста текст смс в байтах 
 
     public function add_payment($userID, $payment) {
         $datapath = Registry::getInstance()->getResource('setting')['data_path'];
