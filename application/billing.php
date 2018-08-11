@@ -15,7 +15,7 @@ class ModelBalance {
 
     const SENDSMSFEE = 1.5;
     const HLRFEE = 0.6; 
-    const SMSLENGHTUTF8 = 68;
+    const SMSLENGHTUTF8 = 136;
     const SMSLENGHTASCII = 136;
     const  MAXSMSLENGHT = 276; //Допутимая длина текста текст смс в байтах 
 
