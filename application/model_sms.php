@@ -65,13 +65,13 @@ class model_sms {
         return $result;
     }
 
-    private function build_GET($base_URL, $params = array()) {
+    public function build_GET($base_URL, $params = array()) {
 
         $result = $base_URL . '?' . http_build_query($params, '', '&', PHP_QUERY_RFC3986);
         return $result;
     }
 
-    private function set_params($user_params = array()) { // устанавливает значения параметров GET запроса к API SigmaSMS
+    public function set_params($user_params = array()) { // устанавливает значения параметров GET запроса к API SigmaSMS
         $api_params = array(
             'timestamp' => $this->get_request($this->api_url['timestampURL']),
             'login' => $this->login

@@ -21,7 +21,7 @@ class controller_sms {
                 if ( $is_user_login === TRUE and User::get_user_balance($params['login']) >= 20 ){
                     $sms = new model_sms();
                     $answer = $sms->send_sms($params['phone'], $params['text']);
-                    $result = json_decode($answer, TRUE)[0][$params['phone']];
+                    $result = json_decode( $answer, TRUE )[$params['phone']];
                     
                     if ($result['error'] == '0'){
                               
